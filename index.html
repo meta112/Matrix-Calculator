@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Matrix Calculator</title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="calculator-grid">
+            <div class="top-bar">
+                <h1>Matrix Calculator</h1>
+                <button>history</button>
+                <label for="select-operation">Choose a Matrix Operation: </label>
+                <select id="select-operation">
+                    <option value="addition">Addition</option>
+                    <option value="subtraction">Subtraction</option>
+                </select>
+            </div>
+            <div class="matrix-input">
+                
+                <form action="" id="matrix-form">
+                    <div class="input-left">
+
+                        Dimension: 
+                        <input id = "m-a" type="number" step="1">   <!-- Look into other needed attributes e.g. class for styling  -->
+                        x
+                        <input id = "n-a" type="number" step="1">
+                        <br>
+                        <select id="select-input-style">
+                            <option value="cells">Cells</option>
+                            <option value="textbox">Textbox</option>
+                        </select>
+                        <div id="matrix-a-cells">
+                            <input placeholder="matrix cells">
+                            <br>
+                            <button id="clear-a">Clear</button>
+                            <button id="fill-empty-a">Fill empty with</button><input id="fill-value-a">
+                        </div>
+                        <div id="matrix-a-textbox">
+                            <input placeholder="matrix textbox">
+                        </div>
+
+                    </div>
+                    <div class="input-right"> <!-- duplicate input-left content when finished -->
+                        right side input
+                    </div>
+                    <div class="input-bottom">
+                        <button type="submit">Calculate</button>
+                    </div>
+                </form>
+                
+            </div>
+            <div class="matrix-output">
+                <p>Solution: number</p>
+                <div class="matrix">
+                    [a b <br>
+                     c d]
+                </div>
+                <button id="steps-button">Show steps</button>
+            </div>
+            <div class="solution-steps">
+                steps:
+            </div>
+        </div>
+    </body>
+
+</html>
