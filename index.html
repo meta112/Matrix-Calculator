@@ -23,11 +23,13 @@
                 <select id="select-operation">
                     <option value="addition">Addition</option>
                     <option value="subtraction">Subtraction</option>
+                    <option value="rref">RREF</option>
                 </select>
             </div>
-            <div class="matrix-input">
+            
                 
                 <form action="" id="matrix-form">
+                    <div class="matrix-input" id="matrix-input">
                     <div class="input-left">
 
                         Dimension: 
@@ -50,15 +52,16 @@
                         </div>
 
                     </div>
-                    <div class="input-right"> <!-- duplicate input-left content when finished -->
+                    <div class="input-right" id="input-right"> <!-- duplicate input-left content when finished -->
                         right side input
                     </div>
                     <div class="input-bottom">
                         <button type="submit">Calculate</button>
                     </div>
+                    </div>
                 </form>
                 
-            </div>
+            
             <div class="matrix-output">
                 <p>Solution: number</p>
                 <div class="matrix">

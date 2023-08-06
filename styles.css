@@ -1,0 +1,44 @@
+.top-bar{
+    margin: 30px;
+
+    grid-template-columns: repeat(3, 1fr) 2fr;
+    display: grid;
+}
+
+.top-bar > button{
+    justify-self: center;
+    background-color: yellow;
+}
+
+.top-bar > label{
+    justify-self: end;
+    margin-right: 5px;
+}
+
+.top-bar > select{
+    justify-self: start;
+    height: 1.5rem;
+}
+
+.matrix-input{
+    border-style: solid;
+    border-width: 2px;
+    padding: 0.5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+}
+
+.input-left{
+    display: inline-block;
+    border-style: solid;
+    border-width: 2px;
+    justify-self: center;
+    
+}
+
+.input-right{
+    display: inline-block;
+    border-style: solid;
+    border-width: 2px;
+}
