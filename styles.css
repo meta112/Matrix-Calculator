@@ -1,3 +1,9 @@
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+    font-weight: normal;
+}
+
 .top-bar{
     margin: 30px;
 
@@ -30,15 +36,37 @@
 }
 
 .input-left{
-    display: inline-block;
+    
     border-style: solid;
     border-width: 2px;
     justify-self: center;
+    width: 75%;
+    text-align: center;
+    
     
 }
 
 .input-right{
-    display: inline-block;
+    
     border-style: solid;
     border-width: 2px;
+    justify-self: center;
+    width: 75%;
+    text-align: center;
+}
+
+#matrix-a-cells{
+    display: block;
+}
+
+#matrix-a-textbox{
+    display: none;
+}
+
+#matrix-b-cells{
+    display: block;
+}
+
+#matrix-b-textbox{
+    display: none;
 }

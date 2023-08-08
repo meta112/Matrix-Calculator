@@ -30,34 +30,53 @@
                 
                 <form action="" id="matrix-form">
                     <div class="matrix-input" id="matrix-input">
-                    <div class="input-left">
-
-                        Dimension: 
-                        <input id = "m-a" type="number" step="1">   <!-- Look into other needed attributes e.g. class for styling  -->
-                        x
-                        <input id = "n-a" type="number" step="1">
-                        <br>
-                        <select id="select-input-style">
-                            <option value="cells">Cells</option>
-                            <option value="textbox">Textbox</option>
-                        </select>
-                        <div id="matrix-a-cells">
-                            <input placeholder="matrix cells">
+                        <div class="input-left">
+                            
+                            Dimension: 
+                            <input id = "m-a" type="number" step="1" min="1" max="10">   <!-- Look into other needed attributes e.g. class for styling  -->
+                            x
+                            <input id = "n-a" type="number" step="1" min="1" max="10">
                             <br>
-                            <button id="clear-a">Clear</button>
-                            <button id="fill-empty-a">Fill empty with</button><input id="fill-value-a">
-                        </div>
-                        <div id="matrix-a-textbox">
-                            <input placeholder="matrix textbox">
-                        </div>
+                            
+                            <select id="cell-text-left">
+                                <option value="cells">Cells</option>
+                                <option value="textbox">Textbox</option>
+                            </select>
+                            <div id="matrix-a-cells">
+                                <input placeholder="matrix cells">
+                                <br>
+                                <button id="clear-a">Clear</button>
+                                <button id="fill-empty-a">Fill empty with</button><input id="fill-value-a">
+                            </div>
+                            <div id="matrix-a-textbox">
+                                <input placeholder="matrix textbox">
+                            </div>
 
-                    </div>
-                    <div class="input-right" id="input-right"> <!-- duplicate input-left content when finished -->
-                        right side input
-                    </div>
-                    <div class="input-bottom">
-                        <button type="submit">Calculate</button>
-                    </div>
+                        </div>
+                        <div class="input-right" id="input-right"> <!-- duplicate input-left content when finished -->
+                            Dimension: 
+                            <input id = "m-b" type="number" step="1" min="1" max="10">   <!-- Look into other needed attributes e.g. class for styling  -->
+                            x
+                            <input id = "n-b" type="number" step="1" min="1" max="10">
+                            <br>
+                            
+                            <select id="cell-text-right">
+                                <option value="cells">Cells</option>
+                                <option value="textbox">Textbox</option>
+                            </select>
+                            <div id="matrix-b-cells">
+                                <input placeholder="matrix cells">
+                                <br>
+                                <button id="clear-b">Clear</button>
+                                <button id="fill-empty-b">Fill empty with</button><input id="fill-value-b">
+                            </div>
+                            <div id="matrix-b-textbox">
+                                <input placeholder="matrix textbox">
+                            </div>
+                        </div>
+                        <div class="input-bottom">
+                            <button type="submit">Calculate</button>
+                        </div>
                     </div>
                 </form>
                 
