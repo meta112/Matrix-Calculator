@@ -28,7 +28,7 @@
             </div>
             
                 
-                <form action="" id="matrix-form">
+                
                     <div class="matrix-input" id="matrix-input">
                         <div class="input-left">
                             
@@ -36,17 +36,22 @@
                             <input id = "m-a" type="number" step="1" min="1" max="10">   <!-- Look into other needed attributes e.g. class for styling  -->
                             x
                             <input id = "n-a" type="number" step="1" min="1" max="10">
-                            <br>
                             
                             <select id="cell-text-left">
                                 <option value="cells">Cells</option>
                                 <option value="textbox">Textbox</option>
                             </select>
+
                             <div id="matrix-a-cells">
-                                <input placeholder="matrix cells">
-                                <br>
+                                <div class="cells-grid" id="cells-grid-a">
+                                    <input data-cell-a class="cell" value="1">
+                                    <input data-cell-a class="cell" value="2">
+                                    <input data-cell-a class="cell" value="3">
+                                    <input data-cell-a class="cell" value="4">
+                                    
+                                </div>
                                 <button id="clear-a">Clear</button>
-                                <button id="fill-empty-a">Fill empty with</button><input id="fill-value-a">
+                                <button id="fill-empty-a">Fill empty with</button><input id="fill-value-a" value="0">
                             </div>
                             <div id="matrix-a-textbox">
                                 <input placeholder="matrix textbox">
@@ -75,10 +80,10 @@
                             </div>
                         </div>
                         <div class="input-bottom">
-                            <button type="submit">Calculate</button>
+                            <button id="calculate-button">Calculate</button>
                         </div>
                     </div>
-                </form>
+                
                 
             
             <div class="matrix-output">

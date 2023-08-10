@@ -12,6 +12,8 @@ const cellTextRight = document.getElementById("cell-text-right");
 const matrixBCells = document.getElementById("matrix-b-cells");
 const matrixBTextbox = document.getElementById("matrix-b-textbox");
 
+const clearButtonA = document.getElementById("clear-a");
+
 operationSelect.addEventListener('change', (event) => {
     console.log("changed smth");
     if (event.target.value == "rref"){
@@ -43,5 +45,36 @@ cellTextRight.addEventListener('change', (event) =>{
     } else if (event.target.value == "textbox"){
         matrixBCells.style.setProperty("display", "none");
         matrixBTextbox.style.setProperty("display", "block");
+    }
+})
+
+//testing purposes
+var lista = document.getElementsByClassName("cell");
+//use next 3 lines to add cells in appropriate spots
+//const newtestcell = document.createElement("input");
+//newtestcell.classList.add("cell");
+//lista[1].insertAdjacentElement("beforebegin", newtestcell);
+//newtestcell.value="5";
+const newtestcell2 = document.createElement("input");
+newtestcell2.dataset.cellA = "";
+newtestcell2.classList.add("cell");
+
+lista[1].insertAdjacentElement("afterend", newtestcell2);
+newtestcell2.value="99";
+lista = document.getElementsByClassName("cell");
+for (var i = 0; i < 5; i++){
+    console.log(lista[i]);
+}
+
+var list2 = document.querySelectorAll("[data-cell-a]");
+for (var i = 0; i < 5; i++){
+    console.log(list2[i].value);
+}
+//end of test
+///////////////////////////////////////////
+clearButtonA.addEventListener("click", () => {
+    var lista = document.querySelectorAll("[data-cell-a]");
+    for (var i = 0; i < lista.length; i++){
+        lista[i].value = "";
     }
 })
