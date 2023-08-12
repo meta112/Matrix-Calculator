@@ -97,3 +97,11 @@
     text-align: center;
 }
 
+.input-bottom{
+    text-align: center;
+    grid-column: span 2;
+}
+
+.matrix-output{
+    text-align: center;
+}
