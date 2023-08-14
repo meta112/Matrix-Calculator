@@ -34,7 +34,7 @@ cellTextLeft.addEventListener('change', (event) =>{
         matrixATextbox.style.setProperty("display", "none");
     } else if (event.target.value == "textbox"){
         matrixACells.style.setProperty("display", "none");
-        matrixATextbox.style.setProperty("display", "block");
+        matrixATextbox.style.setProperty("display", "inline");
     }
 })
 
@@ -44,7 +44,7 @@ cellTextRight.addEventListener('change', (event) =>{
         matrixBTextbox.style.setProperty("display", "none");
     } else if (event.target.value == "textbox"){
         matrixBCells.style.setProperty("display", "none");
-        matrixBTextbox.style.setProperty("display", "block");
+        matrixBTextbox.style.setProperty("display", "inline");
     }
 })
 

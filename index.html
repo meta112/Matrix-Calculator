@@ -53,8 +53,8 @@
                                 <button id="clear-a">Clear</button>
                                 <button id="fill-empty-a">Fill empty with</button><input id="fill-value-a" value="0">
                             </div>
-                            <div id="matrix-a-textbox">
-                                <input placeholder="matrix textbox">
+                            <div>
+                                <textarea class="matrix-textbox" id="matrix-a-textbox" placeholder="Enter values separated by spaces. Do not leave spaces after - or /." rows="5" cols="30"></textarea>
                             </div>
 
                         </div>
@@ -63,20 +63,25 @@
                             <input id = "m-b" type="number" step="1" min="1" max="10">   <!-- Look into other needed attributes e.g. class for styling  -->
                             x
                             <input id = "n-b" type="number" step="1" min="1" max="10">
-                            <br>
                             
                             <select id="cell-text-right">
                                 <option value="cells">Cells</option>
                                 <option value="textbox">Textbox</option>
                             </select>
+
                             <div id="matrix-b-cells">
-                                <input placeholder="matrix cells">
-                                <br>
+                                <div class="cells-grid" id="cells-grid-b">
+                                    <input data-cell-b class="cell" value="1">
+                                    <input data-cell-b class="cell" value="2">
+                                    <input data-cell-b class="cell" value="3">
+                                    <input data-cell-b class="cell" value="4">
+                                    
+                                </div>
                                 <button id="clear-b">Clear</button>
-                                <button id="fill-empty-b">Fill empty with</button><input id="fill-value-b">
+                                <button id="fill-empty-b">Fill empty with</button><input id="fill-value-b" value="0">
                             </div>
-                            <div id="matrix-b-textbox">
-                                <input placeholder="matrix textbox">
+                            <div>
+                                <textarea class="matrix-textbox" id="matrix-b-textbox" placeholder="Enter values separated by spaces. Do not leave spaces after - or /." rows="5" cols="30"></textarea>
                             </div>
                         </div>
                         <div class="input-bottom">
@@ -88,14 +93,40 @@
             
             <div class="matrix-output">
                 <p id="solution-text">Solution: </p>
-                <div class="matrix">
-                    [a b <br>
-                     c d]
+                
+
+                <div class="solution-matrix">
+                    <div class="output-cell highlight-cell">3</div>
+                    <div class="output-cell">7381829</div>
+                    <div class="output-cell">0</div>
+                    <div class="output-cell">-2/7</div>
+                    
                 </div>
+
                 <button id="steps-button">Show steps</button>
             </div>
             <div class="solution-steps">
-                steps:
+                Steps:
+                <div class="solution-step">
+                    <p class="step-text">Step 1: Reduce first row</p>
+                    <div class="solution-matrix">
+                        <div class="output-cell highlight-cell">4</div>
+                        <div class="output-cell">6</div>
+                        <div class="output-cell">1/87</div>
+                        <div class="output-cell">-2324</div>
+                        
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <p class="step-text">Step 2: Reduce second row</p>
+                    <div class="solution-matrix">
+                        <div class="output-cell">4</div>
+                        <div class="output-cell">6</div>
+                        <div class="output-cell highlight-cell">1/87</div>
+                        <div class="output-cell">-2324</div>
+                        
+                    </div>
+                </div>
             </div>
         </div>
     </body>

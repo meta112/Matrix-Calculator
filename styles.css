@@ -37,8 +37,7 @@
 
 .input-left{
     
-    border-style: solid;
-    border-width: 2px;
+    
     justify-self: center;
     width: 75%;
     text-align: center;
@@ -48,11 +47,11 @@
 
 .input-right{
     
-    border-style: solid;
-    border-width: 2px;
+    
     justify-self: center;
     width: 75%;
     text-align: center;
+    padding: 10px;
 }
 
 #matrix-a-cells{
@@ -87,7 +86,7 @@
     text-align: center;
 }
 
-#fill-value-a{
+#fill-value-a, #fill-value-b{
     border:none;
     border-bottom-style: solid;
     border-bottom-width: 2px;
@@ -97,6 +96,7 @@
     text-align: center;
 }
 
+
 .input-bottom{
     text-align: center;
     grid-column: span 2;
@@ -104,4 +104,44 @@
 
 .matrix-output{
     text-align: center;
+    background-color: rgba(42, 209, 0, 0.621);
+    border-bottom:solid;
+    padding:20px;
+
+}
+
+.solution-matrix{
+    display:grid;
+
+    grid-template-columns: repeat(2, max-content);
+    grid-template-rows: repeat(2, 1fr);
+    align-content: center;
+    justify-content: center;
+    margin:50px;
+}
+.output-cell{
+    border:solid;
+    border-width: 1px;
+    padding: 5px;
+}
+
+.highlight-cell{
+    background-color: rgba(81, 255, 0, 0.801);
+}
+
+.solution-steps{
+    padding: 20px;
+}
+
+.solution-step{
+    border-bottom: solid;
+    border-color: grey;
+    border-width: 2px;
+    text-align: center;
+}
+
+.matrix-textbox{
+    margin: 10px;
+    resize:none;
+    
 }
