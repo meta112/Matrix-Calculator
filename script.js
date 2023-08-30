@@ -4,15 +4,34 @@ const operationSelect = document.getElementById("select-operation");
 const inputDiv = document.getElementById("matrix-input");
 const inputRight = document.getElementById("input-right");
 
+const mDimBoxA = document.getElementById("m-a");
+const nDimBoxA = document.getElementById("n-a");
+
 const cellTextLeft = document.getElementById("cell-text-left");
 const matrixACells = document.getElementById("matrix-a-cells");
 const matrixATextbox = document.getElementById("matrix-a-textbox");
+
+const mDimBoxB = document.getElementById("m-b");
+const nDimBoxB = document.getElementById("n-b");
 
 const cellTextRight = document.getElementById("cell-text-right");
 const matrixBCells = document.getElementById("matrix-b-cells");
 const matrixBTextbox = document.getElementById("matrix-b-textbox");
 
 const clearButtonA = document.getElementById("clear-a");
+const clearButtonB = document.getElementById("clear-b");
+const fillButtonA = document.getElementById("fill-empty-a");
+const fillButtonB = document.getElementById("fill-empty-b");
+const fillValueA = document.getElementById("fill-empty-a");
+const fillValueB = document.getElementById("fill-empty-b");
+
+const calculateButton = document.getElementById("calculate-button");
+
+const matrixOutput = document.getElementById("matrix-output");
+const solutionText = document.getElementById("solution-text");
+const stepsButton = document.getElementById("steps-button");
+const solutionSteps = document.getElementById("solution-steps");
+
 
 operationSelect.addEventListener('change', (event) => {
     console.log("changed smth");
