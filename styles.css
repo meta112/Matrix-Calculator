@@ -54,6 +54,10 @@
     padding: 10px;
 }
 
+.dim-input{
+    text-align: center;
+}
+
 #matrix-a-cells{
     display: block;
 }
