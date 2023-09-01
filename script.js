@@ -4,10 +4,10 @@ class matrixCalculator {
         this.nDimBoxA = nDimBoxA;
         this.mDimBoxB = mDimBoxB;
         this.nDimBoxB = nDimBoxB;
-        this.ma = mDimBoxA.innerText;
-        this.na = nDimBoxA.innerText;
-        this.mb = mDimBoxB.innerText;
-        this.nb = nDimBoxB.innerText;
+        this.ma = parseInt(mDimBoxA.value);
+        this.na = parseInt(nDimBoxA.value);
+        this.mb = parseInt(mDimBoxB.value);
+        this.nb = parseInt(nDimBoxB.value);
         this.cellTextLeft = cellTextLeft;
         this.cellTextRight = cellTextRight;
         this.cellsA = document.querySelectorAll("[data-cell-a]");
@@ -32,6 +32,64 @@ class matrixCalculator {
             this.cellsB[i].value = "";
         }
     }
+
+    checkLegalDimHelp(x){
+        if (x == NaN || x < 1 || x > 10){
+            return false;
+        }
+        return true;
+    }
+
+    checkLegalDim(self, aOrB, rowOrCol, newDim){
+        var dim = parseInt(newDim);
+
+        if (aOrB == "a"){
+            if (rowOrCol == "row"){
+                if (this.checkLegalDimHelp(dim)){
+                    this.ma = dim;
+                    self.value = this.ma;
+                    console.log("ok", this.ma);
+                } else {
+                    self.value = this.ma;
+                    console.log("illegal");
+                    console.log(this.ma);
+                }
+            } else if (rowOrCol == "col"){
+                if (this.checkLegalDimHelp(dim)){
+                    this.na = dim;
+                    self.value = this.na;
+                    console.log("ok", this.na);
+                } else {
+                    self.value = this.na;
+                    console.log("illegal");
+                    console.log(this.na);
+                }
+            }
+        } else if (aOrB == "b"){
+            if (rowOrCol == "row"){
+                if (this.checkLegalDimHelp(dim)){
+                    this.mb = dim;
+                    self.value = this.mb;
+                    console.log("ok", this.mb);
+                } else {
+                    self.value = this.mb;
+                    console.log("illegal");
+                    console.log(this.mb);
+                }
+            } else if (rowOrCol == "col"){
+                if (this.checkLegalDimHelp(dim)){
+                    this.nb = dim;
+                    self.value = this.nb;
+                    console.log("ok", this.nb);
+                } else {
+                    self.value = this.nb;
+                    console.log("illegal");
+                    console.log(this.nb);
+                }
+            }
+        }
+    }
+
     updateDisplay(){
         
     }
@@ -136,4 +194,8 @@ clearButtonA.addEventListener("click", () => {
 
 clearButtonB.addEventListener("click", () => {
     matCal.clearB();
+})
+
+mDimBoxA.addEventListener("change", (event) => {
+    matCal.checkLegalDim(event.target, "a", "row", event.target.value);
 })
