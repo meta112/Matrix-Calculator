@@ -1,5 +1,5 @@
 class matrixCalculator {
-    constructor(mDimBoxA, nDimBoxA, mDimBoxB, nDimBoxB, cellTextLeft, cellTextRight){
+    constructor(mDimBoxA, nDimBoxA, mDimBoxB, nDimBoxB, cellTextLeft, cellTextRight, matrixATextbox, matrixBTextbox){
         this.mDimBoxA = mDimBoxA;
         this.nDimBoxA = nDimBoxA;
         this.mDimBoxB = mDimBoxB;
@@ -12,13 +12,25 @@ class matrixCalculator {
         this.cellTextRight = cellTextRight;
         this.cellsA = document.querySelectorAll("[data-cell-a]");
         this.cellsB = document.querySelectorAll("[data-cell-b]");
+        this.matrixATextbox = matrixATextbox;
+        this.matrixBTextbox = matrixBTextbox;
         this.operation = "addition";
     }
     clearA(){
-        
+        this.cellsA = document.querySelectorAll("[data-cell-a]");
+        //console.log(this.cellsA);
+        for (var i = 0; i < this.cellsA.length; i++){
+            //console.log("hi");
+            this.cellsA[i].value = "";
+        }
     }
     clearB(){
-        
+        this.cellsB = document.querySelectorAll("[data-cell-b]");
+        //console.log(this.cellsB);
+        for (var i = 0; i < this.cellsB.length; i++){
+            //console.log("hi");
+            this.cellsB[i].value = "";
+        }
     }
     updateDisplay(){
         
@@ -58,7 +70,7 @@ const solutionText = document.getElementById("solution-text");
 const stepsButton = document.getElementById("steps-button");
 const solutionSteps = document.getElementById("solution-steps");
 
-const matCal = new matrixCalculator(mDimBoxA, nDimBoxA, mDimBoxB, nDimBoxB, cellTextLeft, cellTextRight);
+const matCal = new matrixCalculator(mDimBoxA, nDimBoxA, mDimBoxB, nDimBoxB, cellTextLeft, cellTextRight, matrixATextbox, matrixBTextbox);
 
 operationSelect.addEventListener('change', (event) => {
     console.log("changed smth");
@@ -120,4 +132,8 @@ for (var i = 0; i < 5; i++){
 ///////////////////////////////////////////
 clearButtonA.addEventListener("click", () => {
     matCal.clearA();
+})
+
+clearButtonB.addEventListener("click", () => {
+    matCal.clearB();
 })
