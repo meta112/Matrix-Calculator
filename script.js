@@ -1,4 +1,30 @@
+class matrixCalculator {
+    constructor(mDimBoxA, nDimBoxA, mDimBoxB, nDimBoxB, cellTextLeft, cellTextRight){
+        this.mDimBoxA = mDimBoxA;
+        this.nDimBoxA = nDimBoxA;
+        this.mDimBoxB = mDimBoxB;
+        this.nDimBoxB = nDimBoxB;
+        this.ma = mDimBoxA.innerText;
+        this.na = nDimBoxA.innerText;
+        this.mb = mDimBoxB.innerText;
+        this.nb = nDimBoxB.innerText;
+        this.cellTextLeft = cellTextLeft;
+        this.cellTextRight = cellTextRight;
+        this.cellsA = document.querySelectorAll("[data-cell-a]");
+        this.cellsB = document.querySelectorAll("[data-cell-b]");
+        this.operation = "addition";
+    }
+    clearA(){
+        
+    }
+    clearB(){
+        
+    }
+    updateDisplay(){
+        
+    }
 
+} //plan for dim updating: if the new input value is legal, change the class variable. if not, change back to the current class variable
 
 const operationSelect = document.getElementById("select-operation");
 const inputDiv = document.getElementById("matrix-input");
@@ -32,6 +58,7 @@ const solutionText = document.getElementById("solution-text");
 const stepsButton = document.getElementById("steps-button");
 const solutionSteps = document.getElementById("solution-steps");
 
+const matCal = new matrixCalculator(mDimBoxA, nDimBoxA, mDimBoxB, nDimBoxB, cellTextLeft, cellTextRight);
 
 operationSelect.addEventListener('change', (event) => {
     console.log("changed smth");
@@ -92,8 +119,5 @@ for (var i = 0; i < 5; i++){
 //end of test
 ///////////////////////////////////////////
 clearButtonA.addEventListener("click", () => {
-    var lista = document.querySelectorAll("[data-cell-a]");
-    for (var i = 0; i < lista.length; i++){
-        lista[i].value = "";
-    }
+    matCal.clearA();
 })
