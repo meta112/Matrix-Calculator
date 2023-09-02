@@ -153,12 +153,13 @@ cellTextRight.addEventListener('change', (event) =>{
 })
 
 //testing purposes
-var lista = document.getElementsByClassName("cell");
+//var lista = document.getElementsByClassName("cell");
 //use next 3 lines to add cells in appropriate spots
 //const newtestcell = document.createElement("input");
 //newtestcell.classList.add("cell");
 //lista[1].insertAdjacentElement("beforebegin", newtestcell);
 //newtestcell.value="5";
+/*
 const newtestcell2 = document.createElement("input");
 newtestcell2.dataset.cellA = "";
 newtestcell2.classList.add("cell");
@@ -174,6 +175,7 @@ var list2 = document.querySelectorAll("[data-cell-a]");
 for (var i = 0; i < 5; i++){
     console.log(list2[i].value);
 }
+*/
 //end of test
 ///////////////////////////////////////////
 clearButtonA.addEventListener("click", () => {
