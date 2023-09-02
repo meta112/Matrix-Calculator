@@ -48,21 +48,19 @@ class matrixCalculator {
                 if (this.checkLegalDimHelp(dim)){
                     this.ma = dim;
                     self.value = this.ma;
-                    console.log("ok", this.ma);
+                    return true;
                 } else {
                     self.value = this.ma;
-                    console.log("illegal");
-                    console.log(this.ma);
+                    return false;
                 }
             } else if (rowOrCol == "col"){
                 if (this.checkLegalDimHelp(dim)){
                     this.na = dim;
                     self.value = this.na;
-                    console.log("ok", this.na);
+                    return true;
                 } else {
                     self.value = this.na;
-                    console.log("illegal");
-                    console.log(this.na);
+                    return false;
                 }
             }
         } else if (aOrB == "b"){
@@ -70,21 +68,19 @@ class matrixCalculator {
                 if (this.checkLegalDimHelp(dim)){
                     this.mb = dim;
                     self.value = this.mb;
-                    console.log("ok", this.mb);
+                    return true;
                 } else {
                     self.value = this.mb;
-                    console.log("illegal");
-                    console.log(this.mb);
+                    return false;
                 }
             } else if (rowOrCol == "col"){
                 if (this.checkLegalDimHelp(dim)){
                     this.nb = dim;
                     self.value = this.nb;
-                    console.log("ok", this.nb);
+                    return true;
                 } else {
                     self.value = this.nb;
-                    console.log("illegal");
-                    console.log(this.nb);
+                    return false;
                 }
             }
         }
