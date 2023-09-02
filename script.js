@@ -199,3 +199,12 @@ clearButtonB.addEventListener("click", () => {
 mDimBoxA.addEventListener("change", (event) => {
     matCal.checkLegalDim(event.target, "a", "row", event.target.value);
 })
+nDimBoxA.addEventListener("change", (event) => {
+    matCal.checkLegalDim(event.target, "a", "col", event.target.value);
+})
+mDimBoxB.addEventListener("change", (event) => {
+    matCal.checkLegalDim(event.target, "b", "row", event.target.value);
+})
+nDimBoxB.addEventListener("change", (event) => {
+    matCal.checkLegalDim(event.target, "b", "col", event.target.value);
+})
