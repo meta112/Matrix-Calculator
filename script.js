@@ -34,7 +34,7 @@ class matrixCalculator {
     }
 
     checkLegalDimHelp(x){
-        if (x == NaN || x < 1 || x > 10){
+        if (isNaN(x) || x < 1 || x > 10){
             return false;
         }
         return true;
