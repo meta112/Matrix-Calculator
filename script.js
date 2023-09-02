@@ -42,25 +42,20 @@ class matrixCalculator {
 
     checkLegalDim(self, aOrB, rowOrCol, newDim){
         var dim = parseInt(newDim);
-
         if (aOrB == "a"){
             if (rowOrCol == "row"){
                 if (this.checkLegalDimHelp(dim)){
                     this.ma = dim;
                     self.value = this.ma;
-                    return true;
                 } else {
                     self.value = this.ma;
-                    return false;
                 }
             } else if (rowOrCol == "col"){
                 if (this.checkLegalDimHelp(dim)){
                     this.na = dim;
                     self.value = this.na;
-                    return true;
                 } else {
                     self.value = this.na;
-                    return false;
                 }
             }
         } else if (aOrB == "b"){
@@ -68,22 +63,19 @@ class matrixCalculator {
                 if (this.checkLegalDimHelp(dim)){
                     this.mb = dim;
                     self.value = this.mb;
-                    return true;
                 } else {
                     self.value = this.mb;
-                    return false;
                 }
             } else if (rowOrCol == "col"){
                 if (this.checkLegalDimHelp(dim)){
                     this.nb = dim;
                     self.value = this.nb;
-                    return true;
                 } else {
                     self.value = this.nb;
-                    return false;
                 }
             }
         }
+        return this.checkLegalDimHelp(dim);
     }
 
     updateDisplay(){
