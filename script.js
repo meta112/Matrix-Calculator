@@ -10,14 +10,14 @@ class matrixCalculator {
         this.nb = parseInt(nDimBoxB.value);
         this.cellTextLeft = cellTextLeft;
         this.cellTextRight = cellTextRight;
-        this.cellsA = document.querySelectorAll("[data-cell-a]");
-        this.cellsB = document.querySelectorAll("[data-cell-b]");
+        this.cellsA = document.getElementsByClassName("cell-a");
+        this.cellsB = document.getElementsByClassName("cell-b");
         this.matrixATextbox = matrixATextbox;
         this.matrixBTextbox = matrixBTextbox;
         this.operation = "addition";
     }
     clearA(){
-        this.cellsA = document.querySelectorAll("[data-cell-a]");
+        this.cellsA = document.getElementsByClassName("cell-a");
         //console.log(this.cellsA);
         for (var i = 0; i < this.cellsA.length; i++){
             //console.log("hi");
@@ -25,7 +25,7 @@ class matrixCalculator {
         }
     }
     clearB(){
-        this.cellsB = document.querySelectorAll("[data-cell-b]");
+        this.cellsB = document.getElementsByClassName("cell-b");
         //console.log(this.cellsB);
         for (var i = 0; i < this.cellsB.length; i++){
             //console.log("hi");
@@ -153,7 +153,8 @@ cellTextRight.addEventListener('change', (event) =>{
 })
 
 //testing purposes
-//var lista = document.getElementsByClassName("cell");
+//var lista = document.getElementsByClassName("cell-a");
+//console.log(lista);
 //use next 3 lines to add cells in appropriate spots
 //const newtestcell = document.createElement("input");
 //newtestcell.classList.add("cell");
