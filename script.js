@@ -82,7 +82,6 @@ class matrixCalculator {
     updateRows(self, aOrB){
         var old;
         var diff;
-        console.log(this.cellsA);
         if (aOrB == 'a'){
             old = this.ma;
             if (this.checkLegalDim(self, aOrB, "row", self.value) && old != this.ma){
@@ -96,8 +95,6 @@ class matrixCalculator {
                 } else {
                     diff = old - this.ma;
                     var j = old * this.na - 1;
-                    console.log(diff);
-                    console.log(j);
                     for (var i = 0; i < this.na * diff; i++){
                         this.cellsA[j].remove();
                         j--;
@@ -118,8 +115,6 @@ class matrixCalculator {
                 } else {
                     diff = old - this.mb;
                     var j = old * this.nb - 1;
-                    console.log(diff);
-                    console.log(j);
                     for (var i = 0; i < this.nb * diff; i++){
                         this.cellsB[j].remove();
                         j--;
@@ -128,9 +123,9 @@ class matrixCalculator {
                 cellsGridB.style.setProperty("grid-template-rows", `repeat(${this.mb}, 25px)`);
             }
         }
-        console.log(this.cellsA);
-        
     }
+
+    
 
     updateDisplay(self, aOrB, rowOrCol){
         if (aOrB == 'a'){
