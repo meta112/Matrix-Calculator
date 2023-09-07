@@ -78,8 +78,70 @@ class matrixCalculator {
         return this.checkLegalDimHelp(dim);
     }
 
-    updateDisplay(){
+
+    updateRows(self, aOrB){
+        var old;
+        var diff;
+        console.log(this.cellsA);
+        if (aOrB == 'a'){
+            old = this.ma;
+            if (this.checkLegalDim(self, aOrB, "row", self.value) && old != this.ma){
+                if (this.ma > old){
+                    diff = this.ma - old;
+                    for (var i = 0; i < this.na * diff; i++){
+                        const newCell = document.createElement("input");
+                        newCell.classList.add("cell", "cell-a");
+                        this.cellsA[this.cellsA.length - 1].insertAdjacentElement("afterend", newCell);
+                    }
+                } else {
+                    diff = old - this.ma;
+                    var j = old * this.na - 1;
+                    console.log(diff);
+                    console.log(j);
+                    for (var i = 0; i < this.na * diff; i++){
+                        this.cellsA[j].remove();
+                        j--;
+                    }
+                }
+                cellsGridA.style.setProperty("grid-template-rows", `repeat(${this.ma}, 25px)`);
+            }
+        } else if (aOrB == 'b'){
+            old = this.mb;
+            if (this.checkLegalDim(self, aOrB, "row", self.value) && old != this.mb){
+                if (this.mb > old){
+                    diff = this.mb - old;
+                    for (var i = 0; i < this.nb * diff; i++){
+                        const newCell = document.createElement("input");
+                        newCell.classList.add("cell", "cell-b");
+                        this.cellsB[this.cellsB.length - 1].insertAdjacentElement("afterend", newCell);
+                    }
+                } else {
+                    diff = old - this.mb;
+                    var j = old * this.nb - 1;
+                    console.log(diff);
+                    console.log(j);
+                    for (var i = 0; i < this.nb * diff; i++){
+                        this.cellsB[j].remove();
+                        j--;
+                    }
+                }
+                cellsGridB.style.setProperty("grid-template-rows", `repeat(${this.mb}, 25px)`);
+            }
+        }
+        console.log(this.cellsA);
         
+    }
+
+    updateDisplay(self, aOrB, rowOrCol){
+        if (aOrB == 'a'){
+            if (rowOrCol == "row"){
+                this.updateRows(self, aOrB);
+            }
+        } else if (aOrB == 'b') {
+            if (rowOrCol == "row"){
+                this.updateRows(self, aOrB);
+            }
+        }
     }
 
 } //plan for dim updating: if the new input value is legal, change the class variable. if not, change back to the current class variable
@@ -101,6 +163,10 @@ const nDimBoxB = document.getElementById("n-b");
 const cellTextRight = document.getElementById("cell-text-right");
 const matrixBCells = document.getElementById("matrix-b-cells");
 const matrixBTextbox = document.getElementById("matrix-b-textbox");
+
+
+const cellsGridA = document.getElementById("cells-grid-a");
+const cellsGridB = document.getElementById("cells-grid-b");
 
 const clearButtonA = document.getElementById("clear-a");
 const clearButtonB = document.getElementById("clear-b");
@@ -188,13 +254,13 @@ clearButtonB.addEventListener("click", () => {
 })
 
 mDimBoxA.addEventListener("change", (event) => {
-    matCal.checkLegalDim(event.target, "a", "row", event.target.value);
+    matCal.updateDisplay(event.target, 'a', "row");
 })
 nDimBoxA.addEventListener("change", (event) => {
     matCal.checkLegalDim(event.target, "a", "col", event.target.value);
 })
 mDimBoxB.addEventListener("change", (event) => {
-    matCal.checkLegalDim(event.target, "b", "row", event.target.value);
+    matCal.updateDisplay(event.target, 'b', "row");
 })
 nDimBoxB.addEventListener("change", (event) => {
     matCal.checkLegalDim(event.target, "b", "col", event.target.value);
