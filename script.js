@@ -125,16 +125,74 @@ class matrixCalculator {
         }
     }
 
-    
+    updateCols(self, aOrB){
+        var old;
+        var diff;
+        if (aOrB == 'a'){
+            old = this.na;
+            if (this.checkLegalDim(self, aOrB, "col", self.value) && old != this.na){
+                if (this.na > old){
+                    diff = this.na - old;
+                    for (var i = this.ma; i > 0; i--){
+                        for (var j = 0; j < diff; j++){
+                            const newCell = document.createElement("input");
+                            newCell.classList.add("cell", "cell-a");
+                            this.cellsA[i * old - 1].insertAdjacentElement("afterend", newCell);
+                        }
+                    }
+                } else {
+                    diff = old - this.na;
+                    var j = old * this.ma - 1;
+                    for (var i = this.ma * old - 1; i > 0; i = i - old){
+                        var j = i;
+                        for (var k = 0; k < diff; k++){
+                            this.cellsA[j].remove();
+                            j--;
+                        }
+                    }
+                }
+                cellsGridA.style.setProperty("grid-template-columns", `repeat(${this.na}, 50px)`);
+            }
+        } else if (aOrB == 'b'){
+            old = this.nb;
+            if (this.checkLegalDim(self, aOrB, "col", self.value) && old != this.nb){
+                if (this.nb > old){
+                    diff = this.nb - old;
+                    for (var i = this.mb; i > 0; i--){
+                        for (var j = 0; j < diff; j++){
+                            const newCell = document.createElement("input");
+                            newCell.classList.add("cell", "cell-b");
+                            this.cellsB[i * old - 1].insertAdjacentElement("afterend", newCell);
+                        }
+                    }
+                } else {
+                    diff = old - this.nb;
+                    var j = old * this.mb - 1;
+                    for (var i = this.mb * old - 1; i > 0; i = i - old){
+                        var j = i;
+                        for (var k = 0; k < diff; k++){
+                            this.cellsB[j].remove();
+                            j--;
+                        }
+                    }
+                }
+                cellsGridB.style.setProperty("grid-template-columns", `repeat(${this.nb}, 50px)`);
+            }
+        }
+    }
 
     updateDisplay(self, aOrB, rowOrCol){
         if (aOrB == 'a'){
             if (rowOrCol == "row"){
                 this.updateRows(self, aOrB);
+            } else if (rowOrCol == "col"){
+                this.updateCols(self, aOrB);
             }
         } else if (aOrB == 'b') {
             if (rowOrCol == "row"){
                 this.updateRows(self, aOrB);
+            } else if (rowOrCol == "col"){
+                this.updateCols(self, aOrB);
             }
         }
     }
@@ -252,11 +310,11 @@ mDimBoxA.addEventListener("change", (event) => {
     matCal.updateDisplay(event.target, 'a', "row");
 })
 nDimBoxA.addEventListener("change", (event) => {
-    matCal.checkLegalDim(event.target, "a", "col", event.target.value);
+    matCal.updateDisplay(event.target, "a", "col");
 })
 mDimBoxB.addEventListener("change", (event) => {
     matCal.updateDisplay(event.target, 'b', "row");
 })
 nDimBoxB.addEventListener("change", (event) => {
-    matCal.checkLegalDim(event.target, "b", "col", event.target.value);
+    matCal.updateDisplay(event.target, "b", "col");
 })
