@@ -239,6 +239,51 @@ class matrixCalculator {
 
     }
 
+    parseInputCells(aOrB){
+        console.log("hi");
+        var matrix = [];
+        var row = [];
+        if (aOrB == 'a'){
+            for (var i = 0; i < this.ma; i++){
+                for (var j = 0; j < this.na; j++){
+                    console.log('ok');
+                    var x = this.parseCellValue(this.cellsA[i * this.na + j].value);
+                    console.log(x);
+                    if (x){
+                        row.push(x);
+                    } else {
+                        this.matrixA = null;
+                        return;
+                    }
+                }
+                matrix.push(row);
+                row = [];
+            }
+            this.matrixA = matrix;
+            console.log(this.matrixA);
+        } else if (aOrB == 'b'){
+            for (var i = 0; i < this.mb; i++){
+                for (var j = 0; j < this.nb; j++){
+                    var x = this.parseCellValue(this.cellsB[i * this.nb + j].value);
+                    if (x){
+                        row.push(x);
+                    } else {
+                        this.matrixB = null;
+                        return;
+                    }
+                }
+                matrix.push(row);
+                row = [];
+            }
+            this.matrixB = matrix;
+            console.log(this.matrixB);
+        }
+        console.log(matrix);
+    }
+    
+    
+
+
 } //plan for dim updating: if the new input value is legal, change the class variable. if not, change back to the current class variable
 
 const operationSelect = document.getElementById("select-operation");
@@ -360,3 +405,7 @@ mDimBoxB.addEventListener("change", (event) => {
 nDimBoxB.addEventListener("change", (event) => {
     matCal.updateDisplay(event.target, "b", "col");
 })
+//testing
+//calculateButton.addEventListener("click", () => {
+    //matCal.parseInputCells('b');
+//})
