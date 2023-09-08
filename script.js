@@ -280,12 +280,38 @@ class matrixCalculator {
         }
         console.log(matrix);
     }
+
+    buildMatrix(m){
+        if (m) {
+            var old = document.getElementById("solution-matrix");
+            console.log(old);
+            
+            const mat = document.createElement("div");
+            mat.classList.add("solution-matrix");
+            mat.setAttribute("id", "solution-matrix");
+            mat.style.setProperty("grid-template-columns", `repeat(${m[0].length}, max-content)`);
+            mat.style.setProperty("grid-template-rows", `repeat(${m.length}, 1fr)`);
+            for (var i = 0; i < m.length; i++){
+                for (var j = 0; j < m[0].length; j++){
+                    const entry = document.createElement("div");
+                    entry.classList.add("output-cell");
+                    entry.innerText = m[i][j];
+                    mat.appendChild(entry);
+                    console.log(entry);
+                }
+            }
+            if (old){
+                old.replaceWith(mat);
+            }
+        }
+    }
     
     calculate(operation){
         if (operation == "addition"){
             this.addMatrices();
             console.log("answer:");
             console.log(this.solution);
+            this.buildMatrix(this.solution);
         } else if (operation == "subtraction") {
             this.subtractMatrices();
         } else if (operation == "rref"){
