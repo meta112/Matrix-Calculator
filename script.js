@@ -234,7 +234,7 @@ class matrixCalculator {
         } else if (decimal){
             return parseFloat(first + '.' + second);
         } else {
-            return first;
+            return parseInt(first);
         }
 
     }
