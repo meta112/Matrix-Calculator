@@ -281,7 +281,31 @@ class matrixCalculator {
         console.log(matrix);
     }
     
+    calculate(operation){
+        if (operation == "addition"){
+            this.addMatrices();
+        } else if (operation == "subtraction") {
+            this.subtractMatrices();
+        } else if (operation == "rref"){
+            this.rref();
+        }
+    }
+
     
+    addMatrices(){
+        if (this.ma == this.mb && this.na == this.nb){
+            console.log('adding');
+            return;
+        }
+    }
+
+    subtractMatrices(){
+        return;
+    }
+
+    rref(){
+        return;
+    }
 
 
 } //plan for dim updating: if the new input value is legal, change the class variable. if not, change back to the current class variable
@@ -405,7 +429,7 @@ mDimBoxB.addEventListener("change", (event) => {
 nDimBoxB.addEventListener("change", (event) => {
     matCal.updateDisplay(event.target, "b", "col");
 })
-//testing
-//calculateButton.addEventListener("click", () => {
-    //matCal.parseInputCells('b');
-//})
+
+calculateButton.addEventListener("click", () => {
+    matCal.calculate(operationSelect.value);
+})
