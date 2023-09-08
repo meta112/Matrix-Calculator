@@ -284,6 +284,8 @@ class matrixCalculator {
     calculate(operation){
         if (operation == "addition"){
             this.addMatrices();
+            console.log("answer:");
+            console.log(this.solution);
         } else if (operation == "subtraction") {
             this.subtractMatrices();
         } else if (operation == "rref"){
@@ -295,7 +297,27 @@ class matrixCalculator {
     addMatrices(){
         if (this.ma == this.mb && this.na == this.nb){
             console.log('adding');
+            this.parseInputCells('a');
+            this.parseInputCells('b');
+            if (this.matrixA && this.matrixB){
+                var matrix = [];
+                var row = [];
+                for (var i = 0; i < this.ma; i++){
+                    for (var j = 0; j < this.na; j++){
+                        row.push(this.matrixA[i][j] + this.matrixB[i][j]);
+                    }
+                    matrix.push(row);
+                    row = [];
+                }
+                this.solution = matrix;
+            } else {
+                console.log("bad inputs");
+                this.solution = "";
+            }
             return;
+        } else {
+            console.log("mismatching inputs");
+            this.solution = "";
         }
     }
 
