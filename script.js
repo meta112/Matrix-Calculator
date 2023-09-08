@@ -197,6 +197,48 @@ class matrixCalculator {
         }
     }
 
+    parseCellValue(x){
+        var frac = false;
+        var decimal = false;
+        var first = "";
+        var second = "";
+        for (var i = 0; i < x.length; i++){
+            if (isNaN(parseInt(x[i])) && x[i] != '.' && x[i] != '/'){
+                return null;
+            }
+            if (x[i] == '.'){
+                if (frac || decimal){
+                    return null;
+                }
+                decimal = true;
+            } else if (x[i] == '/'){
+                if (frac || decimal){
+                    return null;
+                }
+                frac = true;
+            } else if (!frac && !decimal){
+                if (Number.isInteger(parseInt(x[i]))){
+                    first += x[i];
+                }
+            } else {
+                if (Number.isInteger(parseInt(x[i]))){
+                    second += x[i];
+                }
+            }
+        }
+
+        if (first == ""){
+            return null;
+        } else if (frac){
+            return parseInt(first) / parseInt(second);
+        } else if (decimal){
+            return parseFloat(first + '.' + second);
+        } else {
+            return first;
+        }
+
+    }
+
 } //plan for dim updating: if the new input value is legal, change the class variable. if not, change back to the current class variable
 
 const operationSelect = document.getElementById("select-operation");
