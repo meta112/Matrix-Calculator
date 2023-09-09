@@ -216,7 +216,7 @@ class matrixCalculator {
     }
 
     parseCellValue(c){
-        var x = c.value;
+        var x = c.value.trim();
 
         var leadingZeroes = true;
         var frac = false;
