@@ -230,12 +230,20 @@ class matrixCalculator {
             }
         }
 
-        if (isNaN(parseInt(first))){
+        if (decimal) {
+            if (!isNaN(parseInt(second))){
+                if (first == ""){
+                    return parseFloat("0." + second);
+                } else if (isNaN(parseInt(first))){
+                    return null;
+                } else {
+                    return parseFloat(first + '.' + second);
+                }
+            }
+        } else if (isNaN(parseInt(first))){
             return null;
         } else if (frac){
             return parseInt(first) / parseInt(second);
-        } else if (decimal){
-            return parseFloat(first + '.' + second);
         } else {
             return parseInt(first);
         }
