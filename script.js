@@ -197,7 +197,12 @@ class matrixCalculator {
         }
     }
 
-    parseCellValue(x){
+    parseCellValue(c){
+        var x = c.value;
+        console.log('c');
+        console.log(c);
+
+        var leadingZeroes = true;
         var frac = false;
         var decimal = false;
         var neg = false;
@@ -208,7 +213,7 @@ class matrixCalculator {
                 return null;
             }
             if (x[i] == '-'){
-                if (neg) return null;
+                if (neg || i != 0) return null;
                 neg = true;
             }
             if (x[i] == '.'){
@@ -216,20 +221,33 @@ class matrixCalculator {
                     return null;
                 }
                 decimal = true;
+                leadingZeroes = true;
             } else if (x[i] == '/'){
                 if (frac || decimal){
                     return null;
                 }
                 frac = true;
+                leadingZeroes = true;
             } else if (!frac && !decimal){
-                first += x[i];
+                if (x[i] != '0'){
+                    leadingZeroes = false;
+                    first += x[i];
+                } else if (!leadingZeroes){
+                    first += x[i];
+                }
+                
+            } else if (decimal) {
+                second += x[i];
             } else {
-                if (Number.isInteger(parseInt(x[i]))){
+                if (x[i] != '0'){
+                    leadingZeroes = false;
+                    second += x[i];
+                } else if (!leadingZeroes){
                     second += x[i];
                 }
             }
         }
-
+        if (second == "") second = '0';
         if (decimal) {
             if (!isNaN(parseInt(second))){
                 if (first == ""){
@@ -237,14 +255,17 @@ class matrixCalculator {
                 } else if (isNaN(parseInt(first))){
                     return null;
                 } else {
+                    c.value = first + '.' + second;
                     return parseFloat(first + '.' + second);
                 }
             }
         } else if (isNaN(parseInt(first))){
             return null;
         } else if (frac){
+            c.value = first + '/' + second;
             return parseInt(first) / parseInt(second);
         } else {
+            c.value = first;
             return parseInt(first);
         }
 
@@ -258,8 +279,7 @@ class matrixCalculator {
             for (var i = 0; i < this.ma; i++){
                 for (var j = 0; j < this.na; j++){
                     console.log('ok');
-                    var x = this.parseCellValue(this.cellsA[i * this.na + j].value);
-                    console.log(x);
+                    var x = this.parseCellValue(this.cellsA[i * this.na + j]);
                     if (x || x == 0){
                         row.push(x);
                     } else {
@@ -275,7 +295,7 @@ class matrixCalculator {
         } else if (aOrB == 'b'){
             for (var i = 0; i < this.mb; i++){
                 for (var j = 0; j < this.nb; j++){
-                    var x = this.parseCellValue(this.cellsB[i * this.nb + j].value);
+                    var x = this.parseCellValue(this.cellsB[i * this.nb + j]);
                     if (x || x == 0){
                         row.push(x);
                     } else {
