@@ -200,11 +200,16 @@ class matrixCalculator {
     parseCellValue(x){
         var frac = false;
         var decimal = false;
+        var neg = false;
         var first = "";
         var second = "";
         for (var i = 0; i < x.length; i++){
-            if (isNaN(parseInt(x[i])) && x[i] != '.' && x[i] != '/'){
+            if (isNaN(parseInt(x[i])) && x[i] != '.' && x[i] != '/' && x[i] != '-'){
                 return null;
+            }
+            if (x[i] == '-'){
+                if (neg) return null;
+                neg = true;
             }
             if (x[i] == '.'){
                 if (frac || decimal){
@@ -217,9 +222,7 @@ class matrixCalculator {
                 }
                 frac = true;
             } else if (!frac && !decimal){
-                if (Number.isInteger(parseInt(x[i]))){
-                    first += x[i];
-                }
+                first += x[i];
             } else {
                 if (Number.isInteger(parseInt(x[i]))){
                     second += x[i];
@@ -227,7 +230,7 @@ class matrixCalculator {
             }
         }
 
-        if (first == ""){
+        if (isNaN(parseInt(first))){
             return null;
         } else if (frac){
             return parseInt(first) / parseInt(second);
