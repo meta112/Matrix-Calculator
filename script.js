@@ -197,6 +197,24 @@ class matrixCalculator {
         }
     }
 
+    fillEmpty(aOrB, x){
+        if (aOrB == 'a'){
+            for (var i = 0; i < this.cellsA.length; i++){
+                this.cellsA[i].value = this.cellsA[i].value.trim();
+                if (this.cellsA[i].value == ""){
+                    this.cellsA[i].value = x;
+                }
+            }
+        } else if (aOrB == 'b') {
+            for (var i = 0; i < this.cellsB.length; i++){
+                this.cellsB[i].value = this.cellsB[i].value.trim();
+                if (this.cellsB[i].value == ""){
+                    this.cellsB[i].value = x;
+                }
+            }
+        }
+    }
+
     parseCellValue(c){
         var x = c.value;
 
@@ -506,4 +524,12 @@ nDimBoxB.addEventListener("change", (event) => {
 
 calculateButton.addEventListener("click", () => {
     matCal.calculate(operationSelect.value);
+})
+
+fillButtonA.addEventListener("click", (event) => {
+    matCal.fillEmpty('a', fillValueA.value);
+})
+
+fillButtonB.addEventListener("click", (event) => {
+    matCal.fillEmpty('b', fillValueB.value);
 })
