@@ -428,8 +428,8 @@ const clearButtonA = document.getElementById("clear-a");
 const clearButtonB = document.getElementById("clear-b");
 const fillButtonA = document.getElementById("fill-empty-a");
 const fillButtonB = document.getElementById("fill-empty-b");
-const fillValueA = document.getElementById("fill-empty-a");
-const fillValueB = document.getElementById("fill-empty-b");
+const fillValueA = document.getElementById("fill-value-a");
+const fillValueB = document.getElementById("fill-value-b");
 
 const calculateButton = document.getElementById("calculate-button");
 
