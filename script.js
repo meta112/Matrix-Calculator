@@ -263,6 +263,7 @@ class matrixCalculator {
             return null;
         } else if (frac){
             c.value = first + '/' + second;
+            if (second == '0') return null;
             return parseInt(first) / parseInt(second);
         } else {
             c.value = first;
