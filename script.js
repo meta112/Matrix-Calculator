@@ -328,6 +328,10 @@ class matrixCalculator {
         } else if (operation == "rref"){
             this.rref();
         }
+
+        if (this.solution){
+            matrixOutput.style.setProperty("display", "block");
+        }
     }
 
     

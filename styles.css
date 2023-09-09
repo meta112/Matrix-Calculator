@@ -111,7 +111,7 @@
     background-color: rgba(42, 209, 0, 0.621);
     border-bottom:solid;
     padding:20px;
-
+    display:none;
 }
 
 .solution-matrix{
@@ -135,6 +135,7 @@
 
 .solution-steps{
     padding: 20px;
+    display: none;
 }
 
 .solution-step{
