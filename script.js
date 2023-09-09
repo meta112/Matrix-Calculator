@@ -199,8 +199,6 @@ class matrixCalculator {
 
     parseCellValue(c){
         var x = c.value;
-        console.log('c');
-        console.log(c);
 
         var leadingZeroes = true;
         var frac = false;
@@ -273,13 +271,11 @@ class matrixCalculator {
     }
 
     parseInputCells(aOrB){
-        console.log("hi");
         var matrix = [];
         var row = [];
         if (aOrB == 'a'){
             for (var i = 0; i < this.ma; i++){
                 for (var j = 0; j < this.na; j++){
-                    console.log('ok');
                     var x = this.parseCellValue(this.cellsA[i * this.na + j]);
                     if (x || x == 0){
                         row.push(x);
@@ -292,7 +288,6 @@ class matrixCalculator {
                 row = [];
             }
             this.matrixA = matrix;
-            console.log(this.matrixA);
         } else if (aOrB == 'b'){
             for (var i = 0; i < this.mb; i++){
                 for (var j = 0; j < this.nb; j++){
@@ -308,15 +303,12 @@ class matrixCalculator {
                 row = [];
             }
             this.matrixB = matrix;
-            console.log(this.matrixB);
         }
-        console.log(matrix);
     }
 
     buildMatrix(m){
         if (m) {
             var old = document.getElementById("solution-matrix");
-            console.log(old);
             
             const mat = document.createElement("div");
             mat.classList.add("solution-matrix");
@@ -329,7 +321,6 @@ class matrixCalculator {
                     entry.classList.add("output-cell");
                     entry.innerText = m[i][j];
                     mat.appendChild(entry);
-                    console.log(entry);
                 }
             }
             if (old){
@@ -358,7 +349,6 @@ class matrixCalculator {
     
     addMatrices(){
         if (this.ma == this.mb && this.na == this.nb){
-            console.log('adding');
             this.parseInputCells('a');
             this.parseInputCells('b');
             if (this.matrixA && this.matrixB){
