@@ -252,7 +252,7 @@ class matrixCalculator {
                     console.log('ok');
                     var x = this.parseCellValue(this.cellsA[i * this.na + j].value);
                     console.log(x);
-                    if (x){
+                    if (x || x == 0){
                         row.push(x);
                     } else {
                         this.matrixA = null;
@@ -268,7 +268,7 @@ class matrixCalculator {
             for (var i = 0; i < this.mb; i++){
                 for (var j = 0; j < this.nb; j++){
                     var x = this.parseCellValue(this.cellsB[i * this.nb + j].value);
-                    if (x){
+                    if (x || x == 0){
                         row.push(x);
                     } else {
                         this.matrixB = null;
